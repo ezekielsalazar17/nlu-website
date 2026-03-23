@@ -1,4 +1,4 @@
-import Logo from "@/public/nlulogo.png";
+import Logo from "@/src/assets/nlulogo.png";
 import { Button } from "@/src/components/ui/button";
 import { Typography } from "@/src/components/ui/typography";
 import Image from "next/image";

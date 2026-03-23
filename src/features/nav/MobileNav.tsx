@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Logo from "@/public/nlulogo.png";
+import Logo from "@/src/assets/nlulogo.png";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/src/components/ui/button";

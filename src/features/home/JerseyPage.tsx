@@ -7,16 +7,16 @@ import { Card, CardContent, CardTitle } from "@/src/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/src/components/ui/carousel";
 import { Button } from "@/src/components/ui/button";
 
-import V1 from "@/public/v1.jpg";
-import V2 from "@/public/v2.jpg";
-import V3 from "@/public/v3.jpg";
-import V4 from "@/public/v4.jpg";
-import V5 from "@/public/v5.jpg";
-import V6 from "@/public/v6.jpg";
-import V7b from "@/public/v7_black.png";
-import V7w from "@/public/v7_white.png";
-import V8b from "@/public/v8_black_front.jpg";
-import V8w from "@/public/v8_white_front.jpg";
+import V1 from "@/src/assets/v1.jpg";
+import V2 from "@/src/assets/v2.jpg";
+import V3 from "@/src/assets/v3.jpg";
+import V4 from "@/src/assets/v4.jpg";
+import V5 from "@/src/assets/v5.jpg";
+import V6 from "@/src/assets/v6.jpg";
+import V7b from "@/src/assets/v7_black.png";
+import V7w from "@/src/assets/v7_white.png";
+import V8b from "@/src/assets/v8_black_front.jpg";
+import V8w from "@/src/assets/v8_white_front.jpg";
 import { BlurFade } from "@/src/components/ui/blur-fade";
 import { BorderBeam } from "@/src/components/ui/border-beam";
 
@@ -207,11 +207,7 @@ export default function Jersey() {
             >
               &times;
             </button>
-            <Image
-              src={V1}
-              alt={selectedJersey.version}
-              className="rounded-xl w-full max-w-lg"
-            />
+            {selectedJersey.img}
             <h2 className="text-3xl font-semibold">{selectedJersey.version}</h2>
           </div>
         </div>

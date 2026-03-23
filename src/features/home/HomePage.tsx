@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BGHome from "@/public/bgnoshadow.png";
+import BGHome from "@/src/assets/bgnoshadow.png";
 import { Typography } from "@/src/components/ui/typography";
 import { Button } from "@/src/components/ui/button";
 import { BlurFade } from "@/src/components/ui/blur-fade";

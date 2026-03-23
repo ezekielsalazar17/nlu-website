@@ -1,9 +1,10 @@
 import Image from "next/image";
 import HomePage from "../features/home/HomePage";
 import Navigation from "../features/nav/Navigation";
-import BG from "@/public/bg.png";
 import AboutPage from "../features/home/AboutPage";
 import Jersey from "../features/home/JerseyPage";
+import Footer from "../features/footer/Footer";
+import BG from "../assets/bg.png";
 
 export default function Home() {
   return (
@@ -30,7 +31,7 @@ export default function Home() {
           <Jersey />
         </section>
       </main>
-      <div>footer</div>
+      <Footer />
     </div>
   );
 }
