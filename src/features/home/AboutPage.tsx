@@ -61,7 +61,7 @@ export default function AboutPage() {
       <div className="flex flex-col gap-12">
         <div className="text-center gap-8">
           <BlurFade
-            delay={0.25}
+            delay={0.15}
             inView
             blur="12px"
             direction="up"
@@ -71,7 +71,7 @@ export default function AboutPage() {
             </h1>
           </BlurFade>
           <BlurFade
-            delay={0.5}
+            delay={0.25}
             inView
             blur="12px"
             direction="up"
@@ -86,7 +86,7 @@ export default function AboutPage() {
         </div>
 
         <BlurFade
-          delay={0.75}
+          delay={0.35}
           inView
           blur="12px"
           direction="up"
@@ -102,7 +102,7 @@ export default function AboutPage() {
                     {about.icon}
                   </div>
                   <div className="flex flex-col gap-2">
-                    <h1 className="flex items-start text-2xl font-extrabold text-[#a60607] font-heading">
+                    <h1 className="flex items-start text-2xl font-extrabold text-[#a60607] font-heading tracking-wide">
                       {about.title}
                     </h1>
                     <p className="wrap-break-word w-full text-[#363434] leading-relaxed">{about.description}</p>
