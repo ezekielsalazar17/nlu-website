@@ -4,14 +4,24 @@ import Navigation from "../features/nav/Navigation";
 import AboutPage from "../features/home/AboutPage";
 import Jersey from "../features/home/JerseyPage";
 import Footer from "../features/footer/Footer";
-import BG from "../assets/bg.png";
 import AdminsPage from "../features/home/AdminsPage";
+import MembersPage from "../features/home/MembersPage";
+import ContactPage from "../features/home/ContactPage";
+
+import BG from "../assets/bg.png";
+import BGRed from "@/src/assets/bg-red.png";
 
 export default function Home() {
   return (
     <div className="relative">
       <div className="absolute inset-x-0 top-0 h-screen -z-20">
-        <Image src={BG} alt="bg-nlu" fill className="object-cover" priority />
+        <Image
+          src={BG}
+          alt="bg-nlu"
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
 
       <div className="fixed top-32 -left-24 w-125 h-125 rounded-full bg-[#ED0404]/10 blur-[140px] pointer-events-none -z-10 animate-pulse-glow" />
@@ -26,7 +36,6 @@ export default function Home() {
       <main className="relative">
         <section className="relative">
           <HomePage />
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-b from-transparent to-white pointer-events-none" />
         </section>
         <section>
           <AboutPage />
@@ -36,6 +45,21 @@ export default function Home() {
         </section>
         <section>
           <AdminsPage />
+        </section>
+        <section>
+          <MembersPage />
+        </section>
+        <section className="relative">
+          <div className="absolute inset-x-0 top-0 h-screen -z-20">
+            <Image
+              src={BGRed}
+              alt="BG in contact page"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <ContactPage />
         </section>
       </main>
       <Footer />

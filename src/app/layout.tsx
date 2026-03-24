@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
-import { Poppins, Inter } from "next/font/google";
+import { Inter, Poppins, Russo_One } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+export const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-inter",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+export const russo = Russo_One({
+  weight: "400",
   subsets: ["latin"],
+  variable: "--font-russo",
+});
+
+export const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${inter.variable} h-full antialiased`}
+      className={`${inter.variable} ${russo.variable} ${poppins.variable} h-full antialiased font-sans`}
     >
       <body className="min-h-full flex flex-col font-[family-name:var(--font-poppins)]">{children}</body>
     </html>

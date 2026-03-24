@@ -1,153 +1,145 @@
-import TestImage from "@/src/assets/testimage.jpg";
-import { BlurFade } from "@/src/components/ui/blur-fade";
-import Image from "next/image";
+"use client";
 
-const Founder = [
-  {
-    name: "Kai Watts",
-    position: "Founder",
-    role: "Founder",
-    img: TestImage,
-  },
+import { BlurFade } from "@/src/components/ui/blur-fade";
+
+const Founder = [{ name: "Kai Watts", role: "Founder" }];
+
+const ExecAdmin = [
+  { name: "Rory", role: "Executive Admin" },
+  { name: "Zaf", role: "Executive Admin" },
+  { name: "Zylie", role: "Executive Admin" },
+  { name: "Kohi", role: "Executive Admin" },
+  { name: "Riri", role: "Executive Admin" },
+  { name: "Nami", role: "Executive Admin" },
 ];
 
 const Admins = [
-  {
-    name: "Zei Watts",
-    position: "Admin",
-    role: "GC Admin",
-    img: TestImage,
-  },
-  {
-    name: "Zafiyah Watts",
-    position: "Admin",
-    role: "Moderator",
-    img: TestImage,
-  },
-  {
-    name: "Sauia Watts",
-    position: "Admin",
-    role: "Hiring Moderator",
-    img: TestImage,
-  },
-  {
-    name: "Liyah Watts",
-    position: "Admin",
-    role: "Hiring Moderator",
-    img: TestImage,
-  },
-  { name: "Daz Watts", position: "Admin", role: "Moderator", img: TestImage },
-  { name: "Sniko Watts", position: "Admin", role: "Moderator", img: TestImage },
-  { name: "Avi Watts", position: "Admin", role: "Moderator", img: TestImage },
-  { name: "Rory Watts", position: "Admin", role: "Moderator", img: TestImage },
+  { name: "Zei", role: "Admin" },
+  { name: "Nezu", role: "Admin" },
+  { name: "Sauia", role: "Admin" },
+  { name: "Liyah", role: "Admin" },
+  { name: "Daz", role: "Admin" },
+  { name: "Sneako", role: "Admin" },
+  { name: "Avi", role: "Admin" },
+  { name: "Aji", role: "Admin" },
 ];
+
+type Person = { name: string; role: string };
+
+function PersonItem({ person, index, delay }: { person: Person; index: number; delay: number }) {
+  return (
+    <BlurFade
+      delay={delay + index * 0.05}
+      inView
+      blur="10px"
+      direction="up"
+    >
+      <div className="flex flex-col items-center gap-1.5 py-5 px-6 text-center rounded-xl border border-[#a60607]/20 bg-white/40 hover:bg-[#a60607]/5 hover:border-[#a60607]/50 transition-all duration-200">
+        <p className="text-sm font-bold tracking-wide text-[#131212]">{person.name}</p>
+        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#a60607]/60">{person.role}</p>
+      </div>
+    </BlurFade>
+  );
+}
 
 export default function AdminsPage() {
   return (
-    <div id="admins" className="mx-auto max-w-6xl px-8 min-h-screen py-24">
-      <div className="flex flex-col gap-16">
-        <div className="flex flex-col items-center gap-3 text-center">
-          <BlurFade delay={0.25} inView blur="12px" direction="up">
-            <h1 className="bg-linear-to-b from-[#a60607] via-[#a60607] to-black bg-clip-text text-transparent tracking-widest leading-normal text-4xl md:text-5xl font-semibold">
-              Meet the team behind NLU
-            </h1>
+    <section
+      id="admins"
+      className="relative overflow-hidden py-24 min-h-screen px-8"
+    >
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
+        <div className="flex flex-col items-center gap-3 text-center mb-14">
+          <BlurFade
+            delay={0.15}
+            inView
+            blur="12px"
+            direction="up"
+          >
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#363434] mb-0.5">The Leadership</p>
+            <h2 className="bg-linear-to-b from-[#a60607] via-[#a60607] to-black bg-clip-text text-transparent tracking-normal leading-normal text-4xl md:text-5xl font-semibold font-heading">
+              Meet the Team
+            </h2>
           </BlurFade>
-
-          <div
-            className="w-16 h-0.5 mt-1"
-            style={{
-              background:
-                "linear-gradient(to right, transparent, #a60607, transparent)",
-            }}
-          />
+          <BlurFade
+            delay={0.25}
+            inView
+            blur="12px"
+            direction="up"
+          >
+            <p className="text-sm text-[#363434] max-w-lg leading-relaxed tracking-wide">
+              The dedicated leaders who built and guide NLU — united by passion and driven by purpose.
+            </p>
+          </BlurFade>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-12">
           {Founder.map((founder, i) => (
-            <div key={i} className="relative">
-              <div
-                className="absolute inset-0 rounded-2xl blur-3xl opacity-25 animate-pulse-glow -z-10"
-                style={{
-                  background:
-                    "radial-gradient(ellipse at center, #a60607 0%, transparent 70%)",
-                }}
-              />
+            <BlurFade
+              key={i}
+              delay={0.35}
+              inView
+              blur="12px"
+              direction="up"
+            >
+              <div className="flex flex-col items-center gap-2 py-7 px-16 text-center rounded-2xl border border-amber-400/40 bg-amber-50/30 hover:bg-amber-50/60 hover:border-amber-400/70 transition-all duration-200">
+                <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-amber-600/70">Founder</span>
+                <p className="text-xl font-extrabold tracking-widest text-[#131212] font-heading">{founder.name}</p>
+              </div>
+            </BlurFade>
+          ))}
+        </div>
 
-              <BlurFade delay={0.5} inView blur="12px" direction="up">
-                <div
-                  className="p-0.5 rounded-2xl"
-                  style={{
-                    background: "linear-gradient(to bottom, #a60607, #1a0000)",
-                    boxShadow:
-                      "0 0 30px rgba(166,6,7,0.2), 0 16px 40px rgba(0,0,0,0.08)",
-                  }}
-                >
-                  <div className="bg-white rounded-2xl flex flex-col overflow-hidden w-70">
-                    <div className="w-full overflow-hidden">
-                      <Image
-                        src={founder.img}
-                        alt={founder.name}
-                        width={224}
-                        height={200}
-                        className="w-full object-cover"
-                      />
-                    </div>
-                    <div className="flex flex-col items-center gap-1 p-4 w-full">
-                      <span
-                        className="px-3 py-0.5 text-xs font-bold uppercase tracking-widest rounded-full text-[#a60607] mb-1"
-                        style={{ background: "rgba(166,6,7,0.08)" }}
-                      >
-                        🟡 Founder
-                      </span>
-                      <p className="text-sm font-bold tracking-wide">
-                        {founder.name}
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        {founder.role}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </BlurFade>
+        <BlurFade
+          delay={0.5}
+          inView
+          blur="10px"
+          direction="up"
+        >
+          <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-[#a60607]/60 mb-5">
+            Executive Leadership
+          </p>
+        </BlurFade>
+
+        <div className="grid grid-cols-12 gap-3 mb-12">
+          {ExecAdmin.map((exec, i) => (
+            <div
+              key={i}
+              className={`col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 ${i === 4 ? "lg:col-start-4" : ""}`}
+            >
+              <PersonItem
+                person={exec}
+                index={i}
+                delay={0.55}
+              />
             </div>
           ))}
         </div>
-        <BlurFade delay={0.75} inView blur="12px" direction="up">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 justify-items-center">
-            {Admins.map((admin, i) => (
-              <div
-                key={i}
-                className="group admin-card flex flex-col rounded-xl overflow-hidden cursor-pointer hover:-translate-y-2 border border-[#a60607]/20 w-full max-w-60"
-              >
-                <div className="w-full overflow-hidden">
-                  <Image
-                    src={admin.img}
-                    alt={admin.name}
-                    width={200}
-                    height={180}
-                    className="w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
 
-                <div className="flex flex-col items-center gap-1 p-4 w-full">
-                  <span
-                    className="px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider rounded-full text-[#a60607] mb-1"
-                    style={{ background: "rgba(166,6,7,0.08)" }}
-                  >
-                    🔴 Admin
-                  </span>
-                  <p className="text-sm font-bold tracking-wide text-center">
-                    {admin.name}
-                  </p>
-                  <p className="text-xs text-muted-foreground text-center">
-                    {admin.role}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <BlurFade
+          delay={0.7}
+          inView
+          blur="10px"
+          direction="up"
+        >
+          <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-[#a60607]/60 mb-5">Admins</p>
         </BlurFade>
+
+        <div className="grid grid-cols-12 gap-3">
+          {Admins.map((admin, i) => (
+            <div
+              key={i}
+              className={`col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 ${i === 6 ? "md:col-start-3 lg:col-start-auto" : ""}`}
+            >
+              <PersonItem
+                person={admin}
+                index={i}
+                delay={0.75}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

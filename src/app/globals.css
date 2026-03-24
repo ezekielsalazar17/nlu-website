@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-poppins);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-russo);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -130,6 +130,11 @@
   }
 }
 
+@keyframes scroll-text {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-16px); }
@@ -141,6 +146,9 @@
 }
 
 @layer utilities {
+  .animate-ticker {
+    animation: scroll-text 60s linear infinite;
+  }
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -155,16 +163,5 @@
   }
   .glow-btn:hover {
     box-shadow: 0 0 30px rgba(237, 4, 4, 0.6);
-  }
-  .admin-card {
-    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .admin-card:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.14), 0 0 24px rgba(166, 6, 7, 0.12);
-  }
-  .admin-avatar-ring:hover {
-    box-shadow: 0 0 18px rgba(166, 6, 7, 0.45);
   }
 }
