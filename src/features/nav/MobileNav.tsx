@@ -25,6 +25,10 @@ const SheetNav = [
     title: "Admins",
     url: "#admins",
   },
+  {
+    title: "Members",
+    url: "#members",
+  },
 ];
 
 export default function MobileNav() {
@@ -33,7 +37,12 @@ export default function MobileNav() {
   return (
     <div className="relative flex w-full justify-between h-20">
       <div className="flex lg:hidden z-[60] gap-0 relative">
-        <Image src={Logo} alt="nlu-logo" width={70} height={70} />
+        <Image
+          src={Logo}
+          alt="nlu-logo"
+          width={70}
+          height={70}
+        />
         <div className="flex flex-col justify-center">
           <Typography
             variant="small"
@@ -116,7 +125,12 @@ export default function MobileNav() {
             </div>
 
             <div className="flex items-center justify-center gap-3 px-6 py-4 border-b border-black/8">
-              <Image src={Logo} alt="nlu-logo" width={52} height={52} />
+              <Image
+                src={Logo}
+                alt="nlu-logo"
+                width={52}
+                height={52}
+              />
               <Typography
                 variant="h3"
                 className="bg-linear-to-b from-[#a60607] via-[#a60607] to-black bg-clip-text text-transparent tracking-normal leading-normal text-2xl font-extrabold"

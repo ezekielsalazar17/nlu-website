@@ -44,7 +44,7 @@ export default function ContactPage() {
             blur="12px"
             direction="up"
           >
-            <h1 className="bg-linear-to-b from-[#a60607] via-[#a60607] to-black bg-clip-text text-transparent tracking-widest text-4xl md:text-5xl font-semibold font-heading">
+            <h1 className="bg-linear-to-b from-[#a60607] via-[#a60607] to-black bg-clip-text text-transparent tracking-widest text-4xl md:text-5xl font-semibold font-heading text-center">
               Connect With Our Community
             </h1>
           </BlurFade>
