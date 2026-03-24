@@ -159,7 +159,7 @@ export default function MobileNav() {
                 transition={{ delay: 0.1 + 4 * 0.05, duration: 0.3 }}
               >
                 <Button className="p-6 w-full rounded-xl bg-linear-to-r from-[#ED0404] to-[#9B0202] hover:from-[#FF4D4D] hover:to-[#ED0404] border-0 shadow-[0_0_15px_rgba(237,4,4,0.3)] transition-all duration-300">
-                  Contact Us
+                  <a href="#contact">Contact Us</a>
                 </Button>
               </motion.div>
             </nav>
