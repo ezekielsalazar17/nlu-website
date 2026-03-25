@@ -1,8 +1,13 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Logo from "@/src/assets/nlulogo.png";
 
+import IG from "@/src/assets/instagram.svg";
+import FB from "@/src/assets/facebook.svg";
+import TIKTOK from "@/src/assets/tiktok.svg";
+import DC from "@/src/assets/discord.svg";
+
 type TPlatforms = {
-  src: string;
+  src: StaticImageData;
   alt: string;
   href: string;
 };
@@ -22,23 +27,23 @@ const footerActions = [
 
 const Platforms: TPlatforms[] = [
   {
-    src: "https://thesvg.org/icons/facebook/default.svg",
-    alt: "facebook-nlu",
+    src: FB,
+    alt: "facebook",
     href: "https://www.facebook.com/NLUCommunityyy",
   },
   {
-    src: "https://thesvg.org/icons/instagram/default.svg",
-    alt: "instagram-nlu",
+    src: IG,
+    alt: "instagram",
     href: "https://www.instagram.com/nlu.community?igsh=dnBpYzYzdmd2YTIx",
   },
   {
-    src: "https://thesvg.org/icons/discord/default.svg",
-    alt: "discord-nlu",
+    src: DC,
+    alt: "discord",
     href: "https://discord.com/invite/ePSuH83dvb",
   },
   {
-    src: "https://thesvg.org/icons/tiktok/default.svg",
-    alt: "tiktok-nlu",
+    src: TIKTOK,
+    alt: "tiktok",
     href: "https://www.tiktok.com/@nlu_community?_r=1&_t=ZS-94wlb7b9TJU",
   },
 ];
@@ -119,7 +124,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/8 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-2">
-          <p className="text-white/25 text-xs">© 2025 Nos Ludere Ut. All rights reserved.</p>
+          <p className="text-white/25 text-xs">© 2022 Nos Ludere Ut. All rights reserved.</p>
           <p className="text-white/20 text-xs">Made with passion for the game.</p>
         </div>
       </div>

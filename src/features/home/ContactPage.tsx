@@ -1,30 +1,35 @@
 import { BlurFade } from "@/src/components/ui/blur-fade";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+
+import IGBlack from "@/src/assets/instagram-mono.svg";
+import FBBlack from "@/src/assets/facebook-mono.svg";
+import TIKTOKBlack from "@/src/assets/tiktok-light.svg";
+import DCBlack from "@/src/assets/discord-mono.svg";
 
 type TPlatforms = {
-  src: string;
+  src: StaticImageData;
   alt: string;
   href: string;
 };
 
 const Platforms: TPlatforms[] = [
   {
-    src: "https://thesvg.org/icons/facebook/mono.svg",
+    src: FBBlack,
     alt: "facebook-nlu",
     href: "https://www.facebook.com/NLUCommunityyy",
   },
   {
-    src: "https://thesvg.org/icons/instagram/mono.svg",
+    src: IGBlack,
     alt: "instagram-nlu",
     href: "https://www.instagram.com/nlu.community?igsh=dnBpYzYzdmd2YTIx",
   },
   {
-    src: "https://thesvg.org/icons/discord/mono.svg",
+    src: DCBlack,
     alt: "discord-nlu",
     href: "https://discord.com/invite/ePSuH83dvb",
   },
   {
-    src: "https://thesvg.org/icons/tiktok/light.svg",
+    src: TIKTOKBlack,
     alt: "tiktok-nlu",
     href: "https://www.tiktok.com/@nlu_community?_r=1&_t=ZS-94wlb7b9TJU",
   },
