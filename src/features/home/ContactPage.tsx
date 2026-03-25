@@ -21,7 +21,7 @@ const Platforms: TPlatforms[] = [
   {
     src: "https://thesvg.org/icons/discord/mono.svg",
     alt: "discord-nlu",
-    href: "",
+    href: "https://discord.com/invite/ePSuH83dvb",
   },
   {
     src: "https://thesvg.org/icons/tiktok/light.svg",

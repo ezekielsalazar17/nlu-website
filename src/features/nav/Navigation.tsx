@@ -71,7 +71,6 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Mobile nav */}
       <div className="block lg:hidden">
         <MobileNav />
       </div>

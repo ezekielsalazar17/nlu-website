@@ -78,7 +78,13 @@ export default function HomePage() {
             >
               <div className="flex gap-3 items-center justify-center">
                 <InteractiveHoverButton className="bg-transparent border border-[#a60607] text-[#a60607] hover:bg-[#a60607] hover:text-white shadow-[0_0_12px_rgba(166,6,7,0.2)] hover:shadow-[0_0_24px_rgba(237,4,4,0.4)] transition-all duration-300">
-                  Buy Jersey
+                  <a
+                    href="https://www.facebook.com/messages/t/678112872544258"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Buy Jersey
+                  </a>
                 </InteractiveHoverButton>
                 <Button className="px-7.5 py-5.5 cursor-pointer rounded-full border-0 bg-linear-to-r from-[#ED0404] to-[#9B0202] hover:from-[#FF4D4D] hover:to-[#ED0404] shadow-[0_0_18px_rgba(237,4,4,0.4)] hover:shadow-[0_0_28px_rgba(237,4,4,0.6)] hover:scale-105 transition-all duration-300">
                   <a href="#contact"> Contact Us</a>
