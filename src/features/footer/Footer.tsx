@@ -1,10 +1,10 @@
 import Image, { StaticImageData } from "next/image";
-import Logo from "@/src/assets/nlulogo.png";
 
-import IG from "@/src/assets/instagram.svg";
-import FB from "@/src/assets/facebook.svg";
-import TIKTOK from "@/src/assets/tiktok.svg";
-import DC from "@/src/assets/discord.svg";
+import Logo from "@/assets/nlulogo.png";
+import IG from "@/assets/instagram.svg";
+import FB from "@/assets/facebook.svg";
+import TIKTOK from "@/assets/tiktok.svg";
+import DC from "@/assets/discord.svg";
 
 type TPlatforms = {
   src: StaticImageData;

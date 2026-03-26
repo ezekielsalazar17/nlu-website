@@ -1,9 +1,9 @@
 import Image from "next/image";
-import BGHome from "@/src/assets/bgnoshadow.png";
-import { Typography } from "@/src/components/ui/typography";
-import { Button } from "@/src/components/ui/button";
-import { BlurFade } from "@/src/components/ui/blur-fade";
-import { InteractiveHoverButton } from "@/src/components/ui/interactive-hover-button";
+import BGHome from "@/assets/bgnoshadow.png";
+import { BlurFade } from "@/components/ui/blur-fade";
+import { Typography } from "@/components/ui/typography";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { Button } from "@/components/ui/button";
 
 const tickerItems = ["Nos Ludere Ut", "Gaming Community", "Join the Community", "EST.2020"];
 

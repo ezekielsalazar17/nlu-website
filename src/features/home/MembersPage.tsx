@@ -1,14 +1,16 @@
 "use client";
 
-import { BlurFade } from "@/src/components/ui/blur-fade";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import type { StaticImageData } from "next/image";
-import Laude from "@/src/assets/laude.jpg";
-import Sbia from "@/src/assets/sbia.jpg";
-import Velle from "@/src/assets/velle.jpg";
-import Ignis from "@/src/assets/ignis.jpg";
+
+import { useEffect, useState } from "react";
+
+import { BlurFade } from "@/components/ui/blur-fade";
+import Laude from "@/assets/laude.jpg";
+import Sbia from "@/assets/sbia.jpg";
+import Velle from "@/assets/velle.jpg";
+import Ignis from "@/assets/ignis.jpg";
 
 type Team = {
   name: string;

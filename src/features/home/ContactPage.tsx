@@ -1,10 +1,10 @@
-import { BlurFade } from "@/src/components/ui/blur-fade";
 import Image, { StaticImageData } from "next/image";
 
-import IGBlack from "@/src/assets/instagram-mono.svg";
-import FBBlack from "@/src/assets/facebook-mono.svg";
-import TIKTOKBlack from "@/src/assets/tiktok-light.svg";
-import DCBlack from "@/src/assets/discord-mono.svg";
+import IGBlack from "@/assets/instagram-mono.svg";
+import FBBlack from "@/assets/facebook-mono.svg";
+import TIKTOKBlack from "@/assets/tiktok-light.svg";
+import DCBlack from "@/assets/discord-mono.svg";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 type TPlatforms = {
   src: StaticImageData;
@@ -41,7 +41,7 @@ export default function ContactPage() {
       id="contact"
       className="relative overflow-hidden py-36 px-8"
     >
-      <div className="mx-auto max-w-6xl py-0 lg:py-24 px-8">
+      <div className="mx-auto max-w-6xl">
         <div className="bg-white/10 backdrop-blur-3xl rounded-2xl border border-black/10 h-full p-12 flex flex-col gap-4 justify-center items-center">
           <BlurFade
             inView

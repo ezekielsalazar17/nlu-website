@@ -1,10 +1,10 @@
 "use client";
 
-import Logo from "@/src/assets/nlulogo.png";
-import { Button } from "@/src/components/ui/button";
+import Logo from "@/assets/nlulogo.png";
 import Image from "next/image";
 import MobileNav from "./MobileNav";
 import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { label: "Home", href: "#home", id: "home" },

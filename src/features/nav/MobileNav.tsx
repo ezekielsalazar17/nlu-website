@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Logo from "@/src/assets/nlulogo.png";
+import Logo from "@/assets/nlulogo.png";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Button } from "@/src/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Typography } from "@/src/components/ui/typography";
+import { Typography } from "@/components/ui/typography";
+import { Button } from "@/components/ui/button";
 
 const SheetNav = [
   {

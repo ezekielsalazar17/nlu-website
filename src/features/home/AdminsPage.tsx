@@ -1,6 +1,6 @@
 "use client";
 
-import { BlurFade } from "@/src/components/ui/blur-fade";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 const Founder = [{ name: "Kai Watts", role: "Founder" }];
 

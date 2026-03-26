@@ -8,8 +8,8 @@ import AdminsPage from "../features/home/AdminsPage";
 import MembersPage from "../features/home/MembersPage";
 import ContactPage from "../features/home/ContactPage";
 
-import BG from "../assets/bg.png";
-import BGRed from "@/src/assets/bg-red.png";
+import BG from "@/assets/bg.png";
+import BGRed from "@/assets/bg-red.png";
 
 export default function Home() {
   return (

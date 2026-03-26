@@ -3,22 +3,21 @@
 import { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 
-import { Card, CardContent, CardTitle } from "@/src/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/src/components/ui/carousel";
-import { Button } from "@/src/components/ui/button";
-
-import V1 from "@/src/assets/v1.jpg";
-import V2 from "@/src/assets/v2.jpg";
-import V3 from "@/src/assets/v3.jpg";
-import V4 from "@/src/assets/v4.jpg";
-import V5 from "@/src/assets/v5.jpg";
-import V6 from "@/src/assets/v6.jpg";
-import V7b from "@/src/assets/v7_black.png";
-import V7w from "@/src/assets/v7_white.png";
-import V8b from "@/src/assets/v8_black_front.jpg";
-import V8w from "@/src/assets/v8_white_front.jpg";
-import { BlurFade } from "@/src/components/ui/blur-fade";
+import V1 from "@/assets/v1.jpg";
+import V2 from "@/assets/v2.jpg";
+import V3 from "@/assets/v3.jpg";
+import V4 from "@/assets/v4.jpg";
+import V5 from "@/assets/v5.jpg";
+import V6 from "@/assets/v6.jpg";
+import V7b from "@/assets/v7_black.png";
+import V7w from "@/assets/v7_white.png";
+import V8b from "@/assets/v8_black_front.jpg";
+import V8w from "@/assets/v8_white_front.jpg";
 import { AnimatePresence, motion } from "motion/react";
+import { BlurFade } from "@/components/ui/blur-fade";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 type JerseyType = {
   version: string;

@@ -1,4 +1,4 @@
-import { BlurFade } from "@/src/components/ui/blur-fade";
+import { BlurFade } from "@/components/ui/blur-fade";
 import { Flower, Gift, Rainbow, UsersRound } from "lucide-react";
 
 const AboutUs = [
