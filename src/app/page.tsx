@@ -1,6 +1,8 @@
 import Image from "next/image";
 import HomePage from "../features/home/HomePage";
 import Navigation from "../features/nav/Navigation";
+import StatsBand from "../features/home/StatsBand";
+import ScrollReveal from "../features/home/ScrollReveal";
 import AboutPage from "../features/home/AboutPage";
 import Jersey from "../features/home/JerseyPage";
 import Footer from "../features/footer/Footer";
@@ -36,6 +38,12 @@ export default function Home() {
       <main className="relative">
         <section className="relative">
           <HomePage />
+        </section>
+        <section>
+          <StatsBand />
+        </section>
+        <section>
+          <ScrollReveal />
         </section>
         <section>
           <AboutPage />

@@ -179,3 +179,127 @@
     box-shadow: 0 0 30px rgba(237, 4, 4, 0.6);
   }
 }
+
+/* ─────────────────────────────────────────────
+   Refined-light redesign system
+   ───────────────────────────────────────────── */
+
+::selection {
+  background: rgba(237, 4, 4, 0.16);
+  color: #7f0405;
+}
+
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer-line {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@layer utilities {
+  /* Brand gradient text — replaces the repeated bg-clip pattern */
+  .text-gradient-brand {
+    background-image: linear-gradient(180deg, #ed0404 0%, #a60607 48%, #4a0203 108%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .text-gradient-ink {
+    background-image: linear-gradient(170deg, #201f1f 0%, #201f1f 55%, #a60607 135%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Atmospheric backgrounds (used with mask utilities) */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(19, 18, 18, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(19, 18, 18, 0.05) 1px, transparent 1px);
+    background-size: 58px 58px;
+  }
+  .bg-dots {
+    background-image: radial-gradient(rgba(166, 6, 7, 0.14) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  .mask-radial {
+    -webkit-mask-image: radial-gradient(ellipse 72% 60% at 50% 42%, #000 34%, transparent 80%);
+    mask-image: radial-gradient(ellipse 72% 60% at 50% 42%, #000 34%, transparent 80%);
+  }
+  .mask-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+  }
+
+  .animate-scroll-cue {
+    animation: scroll-cue 1.9s ease-in-out infinite;
+  }
+  .animate-shimmer-line {
+    animation: shimmer-line 3.4s ease-in-out infinite;
+  }
+}
+
+/* Reverse marquee for the modern ticker rows */
+@keyframes scroll-text-rev {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Slow ambient drift for gradient-mesh blobs */
+@keyframes mesh-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(4%, -3%) scale(1.08);
+  }
+  66% {
+    transform: translate(-3%, 4%) scale(0.96);
+  }
+}
+
+@layer utilities {
+  .animate-ticker-rev {
+    animation: scroll-text-rev 55s linear infinite;
+  }
+  .animate-mesh {
+    animation: mesh-drift 18s ease-in-out infinite;
+  }
+  /* Outlined display type for oversized modern wordmarks */
+  .text-stroke-brand {
+    -webkit-text-stroke: 1.5px rgba(166, 6, 7, 0.3);
+    color: transparent;
+  }
+  .text-stroke-ink {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
+    color: transparent;
+  }
+}

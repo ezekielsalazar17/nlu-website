@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 const SheetNav = [
   {
     title: "Home",
-    url: "#/",
+    url: "#home",
   },
   {
     title: "About",

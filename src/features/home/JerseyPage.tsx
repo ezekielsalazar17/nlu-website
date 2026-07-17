@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image, { StaticImageData } from "next/image";
+import { AnimatePresence, motion } from "motion/react";
 
 import V1 from "@/assets/v1.jpg";
 import V2 from "@/assets/v2.jpg";
@@ -13,16 +14,14 @@ import V7b from "@/assets/v7_black.png";
 import V7w from "@/assets/v7_white.png";
 import V8b from "@/assets/v8_black_front.jpg";
 import V8w from "@/assets/v8_white_front.jpg";
-import { AnimatePresence, motion } from "motion/react";
-import { BlurFade } from "@/components/ui/blur-fade";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
-type JerseyType = {
-  version: string;
-  src: StaticImageData;
-};
+import { Button } from "@/components/ui/button";
+import { SectionHeader } from "@/components/ui/section-header";
+import { cn } from "@/lib/utils";
+
+const BUY_URL = "https://www.facebook.com/messages/t/678112872544258";
+
+type JerseyType = { version: string; src: StaticImageData };
 
 const JerseyItem: JerseyType[] = [
   { version: "Version 1", src: V1 },
@@ -38,108 +37,118 @@ const JerseyItem: JerseyType[] = [
 ];
 
 export default function Jersey() {
-  const [selectedJersey, setSelectedJersey] = useState<JerseyType | null>(null);
+  const [selected, setSelected] = useState(0);
+  const [zoom, setZoom] = useState(false);
+  const active = JerseyItem[selected];
 
   return (
     <section
       id="jersey"
-      className="mx-auto min-h-screen px-8 py-24"
+      className="relative mx-auto min-h-screen max-w-6xl px-6 py-28"
     >
-      <div className="flex flex-col items-center justify-center gap-8">
-        <BlurFade
-          delay={0.25}
-          inView
-          blur="12px"
-          direction="up"
-        >
-          <div className="bg-linear-to-b from-[#a60607] via-[#a60607] to-black bg-clip-text text-transparent tracking-normal leading-normal text-4xl md:text-5xl font-semibold font-heading">
-            Our Jersey
-          </div>
-        </BlurFade>
+      <SectionHeader
+        eyebrow="Official Kit"
+        title="Wear the colors."
+        description="Ten drops and counting — from the classics to the latest away kits. Pick one to preview, tap to zoom, then claim yours."
+      />
 
-        <div className="border border-[#a60607]/50 rounded-xl px-4 sm:px-10 lg:px-16 max-w-7xl w-full shadow-[0_4px_30px_rgba(237,4,4,0.06)]">
-          <BlurFade
-            delay={0.5}
-            inView
-            blur="12px"
-            direction="up"
-          >
-            <Carousel className="w-full max-w-8xl">
-              <CarouselContent className="-ml-2 md:-ml-4 p-4 sm:p-8 lg:p-12">
-                {JerseyItem.map((jersey) => (
-                  <CarouselItem
-                    key={jersey.version}
-                    className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
-                  >
-                    <div className="p-1">
-                      <Card
-                        className="cursor-pointer group overflow-hidden border border-[#a60607]/40 transition-all duration-300 hover:shadow-[0_20px_40px_rgba(237,4,4,0.18)] hover:border-[#ED0404]"
-                        onClick={() => setSelectedJersey(jersey)}
-                      >
-                        <CardContent className="flex aspect-square items-center justify-center p-0 relative overflow-hidden">
-                          <div className="transition-transform duration-500 group-hover:scale-110 w-full h-full flex items-center justify-center p-6">
-                            <Image
-                              src={jersey.src}
-                              alt={jersey.version}
-                            />
-                          </div>
-                          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-4">
-                            <span className="text-white text-xs font-semibold tracking-widest uppercase">
-                              Quick View
-                            </span>
-                          </div>
-                        </CardContent>
-                        <CardTitle className="flex items-center justify-center py-3">
-                          <span className="text-xl font-semibold transition-colors duration-200 group-hover:text-[#ED0404]">
-                            {jersey.version}
-                          </span>
-                        </CardTitle>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="hidden sm:flex" />
-              <CarouselNext className="hidden sm:flex" />
-            </Carousel>
-          </BlurFade>
+      <div className="mt-14 grid items-start gap-6 lg:grid-cols-[1.1fr_1fr]">
+        {/* Featured viewer */}
+        <div className="glass relative flex flex-col gap-5 overflow-hidden rounded-[2rem] p-6 shadow-[0_30px_70px_-30px_rgba(237,4,4,0.25)] sm:p-8">
+          <span className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[#ED0404] to-transparent" />
+          <span className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-[#ED0404]/10 blur-[90px]" />
 
-          <BlurFade
-            delay={0.75}
-            inView
-            blur="12px"
-            direction="up"
+          <button
+            type="button"
+            onClick={() => setZoom(true)}
+            className="group relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-linear-to-b from-white/70 to-[#faf5f5]"
+            aria-label={`Zoom ${active.version}`}
           >
-            <div className="flex items-center justify-center mb-8">
-              <Button
-                asChild
-                className="px-8 py-5 cursor-pointer rounded-full border-0 bg-linear-to-r from-[#ED0404] to-[#9B0202] hover:from-[#FF4D4D] hover:to-[#ED0404] shadow-[0_0_18px_rgba(237,4,4,0.35)] hover:shadow-[0_0_30px_rgba(237,4,4,0.55)] hover:scale-105 transition-all duration-300"
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selected}
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.02 }}
+                transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="flex h-full w-full items-center justify-center p-8"
               >
-                <a
-                  href="https://www.facebook.com/messages/t/678112872544258"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  Buy Jersey
-                </a>
-              </Button>
+                <Image
+                  src={active.src}
+                  alt={active.version}
+                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+              </motion.div>
+            </AnimatePresence>
+            <span className="absolute bottom-3 right-3 rounded-full bg-black/55 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+              Tap to zoom
+            </span>
+          </button>
+
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex flex-col">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#a60607]/60">
+                Now viewing
+              </span>
+              <span className="font-heading text-xl font-extrabold tracking-wide text-[#131212]">{active.version}</span>
             </div>
-          </BlurFade>
+            <Button
+              asChild
+              className="cursor-pointer rounded-full border-0 bg-linear-to-r from-[#ED0404] to-[#9B0202] px-7 py-5 text-sm shadow-[0_0_18px_rgba(237,4,4,0.35)] transition-all duration-300 hover:scale-105 hover:from-[#FF4D4D] hover:to-[#ED0404] hover:shadow-[0_0_28px_rgba(237,4,4,0.55)]"
+            >
+              <a
+                href={BUY_URL}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Buy This Kit
+              </a>
+            </Button>
+          </div>
+        </div>
+
+        {/* Thumbnail selector */}
+        <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-3">
+          {JerseyItem.map((jersey, i) => (
+            <button
+              key={jersey.version}
+              type="button"
+              onClick={() => setSelected(i)}
+              aria-label={jersey.version}
+              aria-pressed={selected === i}
+              className={cn(
+                "group relative aspect-square overflow-hidden rounded-xl border bg-white/60 transition-all duration-200",
+                selected === i
+                  ? "border-[#ED0404] shadow-[0_0_0_2px_rgba(237,4,4,0.35),0_12px_24px_-12px_rgba(237,4,4,0.4)]"
+                  : "border-[#a60607]/12 hover:-translate-y-0.5 hover:border-[#a60607]/45 hover:shadow-[0_10px_20px_-12px_rgba(237,4,4,0.3)]",
+              )}
+            >
+              <Image
+                src={jersey.src}
+                alt={jersey.version}
+                className="h-full w-full object-contain p-3 transition-transform duration-300 group-hover:scale-110"
+              />
+              <span className="absolute bottom-1 left-1 rounded-md bg-white/80 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-[#a60607] backdrop-blur-sm">
+                {jersey.version.replace("Version ", "V")}
+              </span>
+            </button>
+          ))}
         </div>
       </div>
 
+      {/* Zoom modal */}
       <AnimatePresence>
-        {selectedJersey && (
+        {zoom && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm"
-            onClick={() => setSelectedJersey(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+            onClick={() => setZoom(false)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.12 }}
           >
             <motion.div
-              className="relative bg-white rounded-2xl p-10 max-w-lg w-full mx-4 shadow-2xl flex flex-col items-center gap-6"
+              className="relative mx-4 flex w-full max-w-lg flex-col items-center gap-6 rounded-3xl bg-white p-10 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
               initial={{ opacity: 0, scale: 0.92, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -147,27 +156,31 @@ export default function Jersey() {
               transition={{ duration: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <button
-                className="absolute top-4 right-4 text-black/40 hover:text-black text-2xl leading-none transition-colors duration-200"
-                onClick={() => setSelectedJersey(null)}
+                className="absolute right-4 top-4 text-2xl leading-none text-black/40 transition-colors duration-200 hover:text-black"
+                onClick={() => setZoom(false)}
+                aria-label="Close"
               >
                 &times;
               </button>
-
               <div className="w-full overflow-hidden rounded-xl">
                 <Image
-                  src={selectedJersey.src}
-                  alt={selectedJersey.version}
-                  className="w-full h-auto"
+                  src={active.src}
+                  alt={active.version}
+                  className="h-auto w-full"
                 />
               </div>
-
-              <h2 className="text-2xl font-bold text-[#131212] font-heading">{selectedJersey.version}</h2>
-
+              <h2 className="font-heading text-2xl font-bold text-[#131212]">{active.version}</h2>
               <Button
                 asChild
-                className="w-full py-5 rounded-full border-0 bg-linear-to-r from-[#ED0404] to-[#9B0202] hover:from-[#FF4D4D] hover:to-[#ED0404] shadow-[0_0_18px_rgba(237,4,4,0.3)] hover:shadow-[0_0_28px_rgba(237,4,4,0.5)] hover:scale-105 transition-all duration-300 text-base"
+                className="w-full rounded-full border-0 bg-linear-to-r from-[#ED0404] to-[#9B0202] py-5 text-base shadow-[0_0_18px_rgba(237,4,4,0.3)] transition-all duration-300 hover:scale-105 hover:from-[#FF4D4D] hover:to-[#ED0404] hover:shadow-[0_0_28px_rgba(237,4,4,0.5)]"
               >
-                <a href="#">Buy This Jersey</a>
+                <a
+                  href={BUY_URL}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Buy This Jersey
+                </a>
               </Button>
             </motion.div>
           </motion.div>
